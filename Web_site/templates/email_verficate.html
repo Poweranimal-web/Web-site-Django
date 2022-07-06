@@ -1,0 +1,26 @@
+{%load static%}
+{# Load the tag library #}
+{% load bootstrap5 %}
+
+{# Load CSS and JavaScript #}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+
+{# Display django.contrib.messages as Bootstrap alerts #}
+{% bootstrap_messages %}
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="{% static 'D:/HTML_CSS/style4.css'%}">
+</head>
+<body>
+<form method="post">
+{% csrf_token %}
+{% bootstrap_field form.code show_label=False %}
+{% buttons %}
+<button class="btn btn-primary" type="submit">Подтвердить</button><br>
+{% endbuttons %}
+</form>
+</body>
+
+</html>

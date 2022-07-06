@@ -1,0 +1,104 @@
+{%load static%}
+{# Load the tag library #}
+{% load bootstrap5 %}
+
+{# Load CSS and JavaScript #}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+
+{# Display django.contrib.messages as Bootstrap alerts #}
+{% bootstrap_messages %}
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+<link href="https://api.mapbox.com/mapbox-gl-js/v2.8.2/mapbox-gl.css" rel="stylesheet">
+<script src="https://api.mapbox.com/mapbox-gl-js/v2.8.2/mapbox-gl.js"></script>
+<script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.0/mapbox-gl-geocoder.min.js'></script>
+<script src="https://unpkg.com/@esri/arcgis-rest-request@4.0.0/dist/bundled/request.umd.js"></script>
+<script src="https://unpkg.com/@esri/arcgis-rest-geocoding@4.0.0/dist/bundled/geocoding.umd.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet/dist/leaflet-src.js"></script>
+<script src="https://unpkg.com/esri-leaflet"></script>
+<link rel="stylesheet" href="https://unpkg.com/esri-leaflet-geocoder/dist/esri-leaflet-geocoder.css"/>
+<script src="https://unpkg.com/esri-leaflet-geocoder"></script>
+<link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.0/mapbox-gl-geocoder.css' type='text/css'/>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<link rel="stylesheet" href="{% static 'D:/HTML_CSS/style3.css'%}"> 
+<script src="{% static 'D:/HTML_CSS/reg.js' %}"></script>
+</head>
+<body>
+<ul class="nav nav-tabs" id="myTab" role="tablist">
+  <li class="nav-item" role="presentation">
+    <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">Personal data</button>
+  </li>
+  <li class="nav-item" role="presentation">
+    <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">Address</button>
+  </li>
+</ul>
+<div class="tab-content" id="myTabContent">
+  <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+        <form method="post" id="form">
+            {% csrf_token %} 
+            <p class="Head fs-2 fw-bold text-center">Welcome</p>
+            {% bootstrap_field form3.restaurant_name show_label=False %}<br>
+            {% bootstrap_field form.name show_label=False %}<br>
+            {% bootstrap_field form.email show_label=False %}<br>
+            {% bootstrap_field form.password_r show_label=False %}<br>
+            {%bootstrap_field form2.repeat_password show_label=False %}<br>
+            {%bootstrap_field form.courier show_label=False %}<br>
+            {%bootstrap_field form.customer show_label=False %}<br>
+            {%bootstrap_field form.employer show_label=False %}<br>
+            {% bootstrap_label "Курьер" label_for="courier" label_class="courier" %}
+            {% bootstrap_label "Клиент" label_for="customer" label_class="customer" %}
+            {% bootstrap_label "Ресторан" label_for="employer" label_class="employer" %}
+            {% buttons %}
+            <button class="btn btn-primary" type="submit" id="reg">Зарегистрироваться</button><br>
+            {% endbuttons %}
+        </form>
+  </div>
+  <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+        <div id="map"></div>
+        <button type="button" class="btn btn-primary" id="accept">Подтвердить адресс ресторана</button>
+        <button type="button" class="btn btn-primary" id="priveous">Назад</button>
+  </div>
+</div>
+<script>
+        var lat;
+        var lng;
+        mapboxgl.accessToken = "pk.eyJ1IjoicG93ZXJhbmltYWwyMDIyIiwiYSI6ImNsNDN2ZWRycDFsZnozYnF5cDcwMTdxYnMifQ.wyc73X1ViS_L2Je4tn0aRQ";
+        const apiKey = "AAPK4c36d84163af483b9758990bc5f0bbd4DxuJHZLXQOzY4DYiV5cLoNhl95E3tiGBR6aYOQoCCvDKnOGuaDbp_6tSmvYoxOCQ";
+        const map = new mapboxgl.Map({
+        container: 'map', // container ID
+        style: 'mapbox://styles/poweranimal2022/cl43vkmc4002e14oa3yimk3vi', // style URL
+        center: [34.98, 48.45], // starting position [lng, lat]
+        zoom: 10 ,// starting
+        });
+        const geocoder = new MapboxGeocoder({
+        // Initialize the geocoder
+        accessToken: mapboxgl.accessToken, // Set the access token
+        mapboxgl: mapboxgl, // Set the mapbox-gl instance
+        marker: true,
+        placeholder: 'Выберите адресс ресторана' // Do not use the default marker style
+        });
+        map.addControl(geocoder);
+        const marker = new mapboxgl.Marker({
+        });
+        map.on("click", (e) => {
+            const coords = e.lngLat.toArray();
+            const authentication = arcgisRest.ApiKeyManager.fromKey(apiKey);
+            L.esri.Geocoding.reverseGeocode(L.esri.Geocoding.arcgisOnlineProvider({apikey: "AAPK4c36d84163af483b9758990bc5f0bbd4DxuJHZLXQOzY4DYiV5cLoNhl95E3tiGBR6aYOQoCCvDKnOGuaDbp_6tSmvYoxOCQ"})).latlng([coords[1],coords[0]]).language("rus")
+            .run(function (error, result, response) {
+                document.getElementsByClassName("mapboxgl-ctrl-geocoder--input")[0].value = String(result.address.LongLabel);
+                lat = coords[1];
+                lng = coords[0];
+            });
+            marker.setLngLat(coords).addTo(map);
+        });
+</script>
+</body>
+
+</html>
