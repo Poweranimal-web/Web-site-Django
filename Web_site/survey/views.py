@@ -3,7 +3,6 @@ from django.utils.decorators import method_decorator
 from django.views import View
 from  django.http import HttpResponse,Http404,HttpResponseRedirect,JsonResponse
 from django.views.decorators.csrf import csrf_exempt
-
 from  .models import Registration,Dish,Currency,Comment,EmployerAdminAuth,Restaurant, Basket,Comment_of_Restaurant,Order
 from django.core.mail import send_mail
 from django.views.generic.list import ListView

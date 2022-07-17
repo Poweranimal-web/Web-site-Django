@@ -1,0 +1,29 @@
+/* The side navigation menu */
+.nav {
+    margin: 0;
+    padding: 0;
+    width: 200px;
+    background-color: black;
+    position: fixed;
+    height: 100%;
+    overflow: auto;
+  }
+  
+  /* Sidebar links */
+  .nav-link {
+    display: block;
+    color: white;
+    padding: 16px;
+    text-decoration: none;
+  }
+  
+  /* Active/current link */
+ .nav-link.active{
+    background-color: rgb(0, 217, 255);
+    color: white;
+  }
+  /* Links on mouse-over */
+.nav-link:hover:not(.active) {
+    background-color: #555;
+    color: white;
+  }

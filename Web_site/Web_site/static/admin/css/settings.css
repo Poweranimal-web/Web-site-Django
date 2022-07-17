@@ -1,0 +1,66 @@
+@media (max-width: 1399.98px) {
+    ul.nav-link1{
+        position:absolute;
+        left:22%;
+        top:80%;
+    }
+    ul.nav-link2{
+        position:absolute;
+        top:80%;
+        left: 10%;
+    }
+}
+@media (min-width: 1400px) { 
+    form.d-flex{
+        position: absolute; 
+        left: 50%;
+      }
+    ul.nav-link{
+        position:absolute; 
+        right:24%; 
+        top:-12%;
+    }
+    ul.nav-link1{
+        position:absolute;
+        top:30%;
+        right: 0.6%;
+    }
+    ul.nav-link2{
+        position:absolute;
+        top:30%;
+        right: 10%;
+    }
+    ul.nav-link2:hover{
+        color: #696969;
+    }
+    ul.nav-link1:hover{
+        color: #696969;
+    }
+}
+footer{
+    background-color: aqua;
+}
+.label_name{
+    position: absolute;
+    top:22%;
+}
+.name{
+    position: absolute;
+    top:37%; 
+}
+.label_email{
+    position: absolute;
+    top:64%;
+}
+.email{
+    position: absolute;
+    top:80%; 
+}
+.password{
+    position: absolute;
+    top:125%; 
+}
+.label_password{
+    position: absolute;
+    top:110%; 
+}

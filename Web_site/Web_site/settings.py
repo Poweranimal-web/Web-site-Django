@@ -23,9 +23,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '431jli(2tm1v-y6-t4i5i&$y-ui!rd^3j5uw#s9twr)vd_(4d!'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["buyah.com","createstores.com","79.132.138.171"]
 
 # Application definition
 
@@ -57,7 +57,7 @@ ROOT_URLCONF = 'Web_site.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['D:/Python/Django_site/Web_site/templates'],
+        'DIRS': ['/home/Nikita/buyah.com/Web-site-Django/Web_site/templates/'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -79,9 +79,9 @@ WSGI_APPLICATION = 'Web_site.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'customers',
-        'USER': 'root',
-        'PASSWORD': 'root123',
+        'NAME': 'buyah',
+        'USER': 'monty',
+        'PASSWORD': 'mysql123',
         'OPTIONS': {'init_command':"SET foreign_key_checks = 0;", },
         'HOST': '127.0.0.1',
         'PORT': '3306'
@@ -126,10 +126,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [
-"D:/HTML_CSS"
-]
-MEDIA_ROOT = "D:/HTML_CSS/"
+STATIC_ROOT = "/home/Nikita/buyah.com/Web-site-Django/Web_site/Web_site/static/"
+MEDIA_ROOT = "/home/Nikita/buyah.com/Web-site-Django/Web_site/Web_site/image/"
 MEDIA_URL = '/media/'
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 EMAIL_HOST_USER = 'nikitagusev.developer@gmail.com'
