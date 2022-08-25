@@ -1,0 +1,103 @@
+{%load static%}
+<!DOCTYPE html>
+<html>
+<head>
+        <meta charset="utf-8">
+        <title>Display a map on a webpage</title>
+        <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+        <link href="https://api.mapbox.com/mapbox-gl-js/v2.8.2/mapbox-gl.css" rel="stylesheet">
+        <script src="https://api.mapbox.com/mapbox-gl-js/v2.8.2/mapbox-gl.js"></script>
+        <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.0/mapbox-gl-geocoder.min.js'></script>
+        <script src="https://unpkg.com/@esri/arcgis-rest-request@4.0.0/dist/bundled/request.umd.js"></script>
+        <script src="https://unpkg.com/@esri/arcgis-rest-geocoding@4.0.0/dist/bundled/geocoding.umd.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+        <script src="https://unpkg.com/leaflet/dist/leaflet-src.js"></script>
+        <script src="https://unpkg.com/esri-leaflet"></script>
+        <link rel="stylesheet" href="https://unpkg.com/esri-leaflet-geocoder/dist/esri-leaflet-geocoder.css"/>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+        <script src="https://unpkg.com/esri-leaflet-geocoder"></script>
+        <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.0/mapbox-gl-geocoder.css' type='text/css'/>
+        <style>
+            #accept{ position: absolute; left:48%; bottom:13%;}
+            body { margin: 0; padding: 0; }
+            #map { position: absolute; left:25%; top: 10%; width: 700px; height: 700px; }
+        </style>
+</head>
+<body>
+    <div id="map"></div>
+    <button type="button" class="btn btn-primary" id="accept">Подтвердить адресс ресторана</button></a>
+    <script>
+        var lat;
+        var lng;
+        mapboxgl.accessToken = "pk.eyJ1IjoicG93ZXJhbmltYWwyMDIyIiwiYSI6ImNsNDN2ZWRycDFsZnozYnF5cDcwMTdxYnMifQ.wyc73X1ViS_L2Je4tn0aRQ";
+        const apiKey = "AAPK4c36d84163af483b9758990bc5f0bbd4DxuJHZLXQOzY4DYiV5cLoNhl95E3tiGBR6aYOQoCCvDKnOGuaDbp_6tSmvYoxOCQ";
+        const map = new mapboxgl.Map({
+        container: 'map', // container ID
+        style: 'mapbox://styles/poweranimal2022/cl43vkmc4002e14oa3yimk3vi', // style URL
+        center: [34.98, 48.45], // starting position [lng, lat]
+        zoom: 10 ,// starting
+        });
+        //const marker = new mapboxgl.Marker().setLngLat([-122.25948, 37.87221]).addTo(map);
+        const geocoder = new MapboxGeocoder({
+        // Initialize the geocoder
+        accessToken: mapboxgl.accessToken, // Set the access token
+        mapboxgl: mapboxgl, // Set the mapbox-gl instance
+        marker: true,
+        placeholder: 'Выберите адресс ресторана' // Do not use the default marker style
+        });
+        map.addControl(geocoder);
+        const marker = new mapboxgl.Marker({
+        });
+        map.on("click", (e) => {
+            const coords = e.lngLat.toArray();
+            const authentication = arcgisRest.ApiKeyManager.fromKey(apiKey);
+            L.esri.Geocoding.reverseGeocode(L.esri.Geocoding.arcgisOnlineProvider({apikey: "AAPK4c36d84163af483b9758990bc5f0bbd4DxuJHZLXQOzY4DYiV5cLoNhl95E3tiGBR6aYOQoCCvDKnOGuaDbp_6tSmvYoxOCQ"})).latlng([coords[1],coords[0]]).language("rus")
+            .run(function (error, result, response) {
+                document.getElementsByClassName("mapboxgl-ctrl-geocoder--input")[0].value = String(result.address.LongLabel);
+                lat = coords[1];
+                lng = coords[0];
+            });
+            marker.setLngLat(coords).addTo(map);
+        });
+        function getCSRFToken(name) {
+            let cookieValue = null;
+            if (document.cookie && document.cookie !== '') {
+                const cookies = document.cookie.split(';');
+                for (let i = 0; i < cookies.length; i++) {
+                    const cookie = cookies[i].trim();
+                    // Does this cookie string begin with the name we want?
+                    if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                        break;
+                    }
+                }
+            }
+            return cookieValue;
+        }
+        $(document).ready(function () {
+            $.ajaxSetup({
+                headers: { "X-CSRFToken": getCSRFToken("csrftoken") }
+            });
+            $("#accept").click(function (e) { 
+                e.preventDefault();
+                $.ajax({
+                    type: "POST",
+                    url: window.location.pathname,
+                    data: {
+                        "address":document.getElementsByClassName("mapboxgl-ctrl-geocoder--input")[0].value,
+                        "lng":lng,
+                        "lat":lat,
+                    },
+                    success: function (response) {
+                        
+                    }
+                });
+            });    
+
+
+        });
+    </script>
+</body>
+</html>

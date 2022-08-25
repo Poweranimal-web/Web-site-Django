@@ -1,0 +1,290 @@
+header{
+background-color: yellow;
+height: 60px;
+width: 1920px;
+display: block;
+position: absolute;
+top: 0;
+right: 0%;
+}
+body{
+height: 2000px;
+}
+footer{
+    background-color: #00bfff;
+    position: absolute;
+    left:0%;
+    top: 157%;
+    width: 1900px;
+    height: 500px;
+}
+/* dropup menu */
+.link{
+position: absolute;
+background-color: yellow;
+display: none;
+top: 57px;
+left: 10%;
+
+}
+.link a{
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+.menu{
+  position: relative;
+  display: block;
+}
+.menu:hover .link{
+   display: block;
+   z-index: 1;
+}
+.item{
+    width: 75px;
+}
+.item:hover{
+    background-color: #cac357;
+}
+.link2{
+position: absolute;
+background-color: yellow;
+display: none;
+top: 57px;
+left: 17%;
+}
+.link2 a{
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+.menu2{
+  position: relative;
+  display: block;
+}
+.menu2:hover .link2{
+   display: block;
+   z-index: 1;
+}
+.item2{
+    width: 75px;
+}
+.item2:hover{
+    background-color: #cac357;
+}
+.link3{
+    position: absolute;
+    background-color: yellow;
+    display: none;
+    top: 57px;
+    left: 24%;
+    }
+.link3 a{
+      color: black;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+}
+.menu3{
+      position: relative;
+      display: block;
+}
+.menu3:hover .link3{
+       display: block;
+       z-index: 1;
+}
+.item3{
+        width: 75px;
+}
+.item3:hover{
+    background-color: #cac357;
+}
+button.but{
+    background-color: yellow;
+    border-width: 0;
+    height: 60px;
+    display: inline;
+    position: absolute;
+    left: 10%;
+    top: 0;
+
+}
+button.but:hover{
+background-color: #cac357;
+}
+button.but2{
+    background-color: yellow;
+    border-width: 0;
+    height: 60px;
+    display: inline;
+    position: absolute;
+    left: 17%;
+    top: 0;
+
+}
+button.but2:hover{
+background-color: #cac357;
+}
+button.but3{
+    background-color: yellow;
+    border-width: 0;
+    height: 60px;
+    display: inline;
+    left: 24%;
+    top: 0;
+    position: absolute;
+
+}
+button.but3:hover{
+background-color: #cac357;
+}
+/* reg and log button */
+a.account{
+    display: block;
+    text-decoration: none;
+    position: absolute;
+    right: 3.5%;
+    bottom: 50%;
+    top: 30%;
+    color: black;
+}
+a.account:hover{
+    color: #777;
+}
+/* basket */
+.basket{
+    position: absolute;
+    right: 18%;
+}
+
+/* image on homepage */
+img.discount{
+    position: absolute;
+    left: 0%;
+    top: 6%;
+    z-index: 0;
+}
+button.move{
+    display: none;
+    position: absolute;
+    top: 10%;
+    left: 2%;
+    top: 30%;
+    width: 80px;
+    height: 80px;
+    background-color: transparent;
+    border: none;
+}
+button.move2{
+    display: none;
+    position: absolute;
+    top: 10%;
+    right:2%;
+    top: 30%;
+    width: 80px;
+    height: 80px;
+    background-color: transparent;
+    border: none;
+}
+img.discount:hover +button.move{
+    display: block;
+    z-index: 1;
+}
+img.discount:hover ~ button.move2{
+    display: block;
+    z-index: 1;
+}
+button.move2:hover {
+display: block;
+background-color: black;
+opacity: 0.6;
+}
+button.move:hover{
+display: block;
+background-color: black;
+opacity: 0.6;
+}
+
+
+h2{
+    color: green;
+    font: Arial;
+    position:absolute;
+    top: 60%;
+}
+.line{
+    position:absolute;
+    top: 64%;
+}
+/* footer */
+a.about{
+    font-size: 160%;
+    color: white;
+    position: absolute;
+    left: 15%;
+    top: 20%;
+
+}
+a.recomendation{
+    font-size: 130%;
+    color: white;
+    text-decoration: none;
+    position: absolute;
+    left: 15%;
+    top: 30%;
+}
+a.sertification{
+    font-size: 130%;
+    color: white;
+    text-decoration: none;
+    position: absolute;
+    left: 15%;
+    top: 40%;
+}
+a.about2{
+    font-size: 160%;
+    color: white;
+    position: absolute;
+    left: 26%;
+    top: 20%;
+
+}
+a.recomendation2{
+    font-size: 130%;
+    color: white;
+    text-decoration: none;
+    position: absolute;
+    left: 26%;
+    top: 30%;
+}
+a.sertification2{
+    font-size: 130%;
+    color: white;
+    text-decoration: none;
+    position: absolute;
+    left: 26%;
+    top: 40%;
+}
+a.facebook{
+    position: absolute;
+    bottom: 30%;
+    left: 35%;
+}
+a.linkedin{
+    position: absolute;
+    bottom: 30%;
+    left: 37%;
+}
+a.pinterest{
+    position: absolute;
+    bottom: 30%;
+    left: 39%;
+}
+a.twitter{
+    position: absolute;
+    bottom: 30%;
+    left: 41%;
+
+}

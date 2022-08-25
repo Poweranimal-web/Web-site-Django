@@ -1,0 +1,11 @@
+.btn:active {
+    border: none;
+}
+#myTab{
+    display: none; 
+}
+#map{
+    position: absolute;
+    top:14%;
+    left:30%;
+}

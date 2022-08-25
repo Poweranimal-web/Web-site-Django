@@ -1,0 +1,18 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="{% static 'admin/css/style2.css'%}"> 
+</head>
+
+<body>
+<a class="survey">Кем вы хотите зарегистрироваться</a>
+<form id = "data2" action="{% url 'forms2' %}" method="get">
+<button class="b1" form="data2"><img class="delivery-man" src="{% static 'admin/img/delivery-man.png'%}" width=45 height=45/><a>Курьером</a></button>
+</form>
+<form id = "data" action="{% url 'forms' %}" method="get">
+<button class="b2" form="data" type="submit"><img class="pedestrian" src="{% static 'admin/img/pedestrian.png'%}" width=45 height=45/><a>Клиентом</a></button>
+</form>
+</body>
+
+</html>

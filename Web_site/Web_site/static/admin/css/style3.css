@@ -1,0 +1,65 @@
+.name{
+    width: 300px;
+    position: absolute;
+    left:40%;
+    top:20%;
+}
+.email{
+    width: 300px;
+    position: absolute;
+    left:40%;
+    top:28%;
+}
+.password{
+    width: 300px;
+    position: absolute;
+    left:40%;
+    top:36%;
+}
+.r_password{
+    width: 300px;
+    position: absolute;
+    left:40%;
+    top:45%;  
+}
+.courier{
+    position: absolute;
+    left:42%;
+    top:52%;
+}
+.customer{
+    position: absolute;
+    left:42%;
+    top:56%; 
+}
+.employer{
+    position: absolute;
+    left:42%;
+    top:60%; 
+}
+#reg{
+    width: 170px;
+    position: absolute;
+    left:43%;
+    top:64%;
+}
+.head{
+    position: absolute;
+    top:14%;
+    left:44.5%;
+}
+#r_name{
+    display: none;
+    width: 300px;
+    position: absolute;
+    left:40%;
+    top:20%;
+}
+#map{
+    position: absolute;
+    top:14%;
+    left:30%;
+}
+.nav{
+    display: none;
+}

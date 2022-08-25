@@ -1,0 +1,15 @@
+.btn{
+    position: absolute;
+    left: 45%;
+    top: 50%;
+    width: 130px;
+    height: 40px;
+}
+.code{
+    position: absolute;
+    left: 45%;
+    top: 40%;
+    width: 130px;
+    height: 60px;
+    text-transform: uppercase; 
+}

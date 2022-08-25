@@ -1,0 +1,124 @@
+.nav {
+    margin: 0;
+    padding: 0;
+    width: 200px;
+    background-color: black;
+    position: fixed;
+    height: 100%;
+    overflow: auto;
+    top:0%;
+  }
+  
+  /* Sidebar links */
+  .nav-link {
+    display: block;
+    color: white;
+    padding: 16px;
+    text-decoration: none;
+  }
+  
+  /* Active/current link */
+ .nav-link.active{
+    background-color: rgb(0, 217, 255);
+    color: white;
+  }
+  /* Links on mouse-over */
+.nav-link:hover:not(.active) {
+    background-color: #555;
+    color: white;
+  }
+.name{
+    position: absolute;
+    width:1500px;
+    left:13%;
+    top:5%;
+}
+.price{
+    position: absolute;
+    left: 13%;
+    top:15%;
+    width:1500px;
+}
+.mass{
+    position: absolute;
+    left: 13%;
+    width:1500px;
+    top:35%;
+}
+.currency{
+    position: absolute;
+    left: 13%;
+    width:1500px;
+    top:25%;
+}
+.unit_of_measurement{
+    position: absolute;
+    left: 13%;
+    width:1500px;
+    top:45%;
+}
+.type_of_meal{
+    position: absolute;
+    left: 13%;
+    width:1500px;
+    top:55%;
+}
+.consist{
+    position: absolute;
+    left: 13%;
+    width:1500px;
+    top:97%;  
+}
+.description{
+    position:absolute;
+    left: 13%;
+    top:65%;
+    width:1500px;
+
+}
+.image_of_meal{
+    position:absolute;
+    left: 13%;
+    top:130%;
+    width:1500px;
+}
+.image{
+    position:absolute;
+    left: 13%;
+    top:143%;
+}
+.label_name{
+    position: absolute;
+    left:13%;
+    top:1%;
+}
+.label_price{
+    position: absolute;
+    left:13%;
+    top:11%;
+}
+.label_currency{
+    position: absolute;
+    left:13%;
+    top:21%;
+}
+.label_mass_of_meal{
+    position: absolute;
+    left:13%;
+    top:31%;
+}
+.label_unit_of_measurement{
+    position: absolute;
+    left:13%;
+    top:41%;
+}
+.label_type_of_meal{
+    position: absolute;
+    left:13%;
+    top:51%;
+}
+.label_consist{
+    position: absolute;
+    left:13%;
+    top:93%;
+}

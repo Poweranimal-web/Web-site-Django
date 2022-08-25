@@ -1,0 +1,36 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{% static 'admin/css/orders_e_admin.css' %}"> 
+</head>
+<nav class="nav flex-column">
+        <a class="nav-link" href="{% url 'employer_admin:home' %}">Home</a>
+        <a class="nav-link" href="{% url 'employer_admin:profile' %}">Profile</a>
+        <a class="nav-link" href="{% url 'employer_admin:product_admin' %}">Products</a>
+        <a class="nav-link active" href="{% url 'employer_admin:order' %}">Orders</a>
+        <a class="nav-link" href="#">Stastics</a>
+</nav>
+<body>
+<script>
+var wsStart='ws://';
+var endpoint=wsStart + window.location.host + window.location.pathname;
+var socket = new WebSocket(endpoint);
+console.log(endpoint);
+socket.onopen =function(e){
+console.log('open',e.data);
+socket.send(1);
+}
+
+
+socket.onmessage=function(e){
+console.log('message',e.data);
+socket.send(1);
+
+}
+
+</script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+.name{
+    width: 300px;
+    position: absolute;
+    left:40%;
+    top:20%;
+}
+.email{
+    width: 300px;
+    position: absolute;
+    left:40%;
+    top:28%;
+}
+.password{
+    width: 300px;
+    position: absolute;
+    left:40%;
+    top:36%;
+}
+.btn{
+    position: absolute;
+    left:43%;
+    top:46%;
+}
