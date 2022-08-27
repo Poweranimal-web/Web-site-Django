@@ -11,11 +11,14 @@ from django.core import serializers
 import logging
 logger = logging.getLogger("django")
 def AdminHomePage(request):
-    data ={
-        "name":request.session.get("login")
-    }
-    logger.debug(data["name"])
-    return render(request,"admin/e_admin.html",locals())
+    if (request.session["Check_auth"]==True):
+        data ={
+            "name":request.session.get("login")
+        }
+        logger.debug(data["name"])
+        return render(request,"admin/e_admin.html",locals())
+    else:
+        return redirect("survey:auth")
 def AdminProfilePage(request):
     admin_data = EmployerAdminAuth.objects.filter(identifier=request.session.get("id"))[0]
     restaurant_data = Restaurant.objects.filter(identifier=request.session.get("id"))[0]

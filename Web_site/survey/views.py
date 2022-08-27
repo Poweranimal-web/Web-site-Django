@@ -221,9 +221,6 @@ def RendClientAuthForm(request):
        "form": form
     }
     return render(request, "form2.html", data)
-# def RendAuthHomePage(request):
-#     global name
-#     return render(request,"home2.html",{"name":name})
 def RendProductPage(request,pk):
         product = Dish.objects.get(id=pk)
         if request.method == "POST":

@@ -4,7 +4,7 @@ app_name = "employer_admin"
 urlpatterns = [
     path("",views.AdminHomePage, name="home"),
     path("profile/",views.AdminProfilePage, name="profile"),
-    path("auth/",views.AdminAuthPage),
+    path("auth/",views.AdminAuthPage, name="auth"),
     path("product_admin/", views.AdminProductPage, name="product_admin"),
     path("product_admin/detail/",views.AdminProductDetailPage, name="product_detail"),
     path("product_admin/detail/<int:pk>",views.AdminChangeProductDetailPage, name="product_change"),
