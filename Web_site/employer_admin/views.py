@@ -8,6 +8,8 @@ import json
 import random
 import string
 from django.core import serializers
+import logging
+logger = logging.getLogger("django")
 def AdminHomePage(request):
     data ={
         "name":request.session.get("login")
