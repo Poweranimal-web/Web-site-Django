@@ -34,6 +34,9 @@ def RendHomepage(request):
         if data["set"] == "sign_out":
             del request.session["name"]
             del request.session["Check_auth"]
+            del request.session["id"]
+            del request.session["email"]
+            del request.session["Auth_Check_Admin"]
             template = render(request, "home.html", locals())
             template.set_cookie("auth", False, httponly=False)
     try:
@@ -135,6 +138,7 @@ def RendRegpage(request):
 def RendNoticePage(request):
     if request.method == "GET":
         request.session["Check_auth"] = True
+        request.session["Auth_Check_Admin"] = True
         SendAdminEmail()
     return render(request, "notice.html")
 def RendClientCodeForm(request):
@@ -146,6 +150,7 @@ def RendClientCodeForm(request):
         form = VeficateCodeForm(request.POST)
         if (form["code"].value()).upper() == request.session["code"]:
             request.session["Check_auth"] = True
+            request.session["Auth_Check_Admin"] = True
             return redirect("survey:home")
     form = VeficateCodeForm()
     data = {
