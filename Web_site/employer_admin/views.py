@@ -33,7 +33,7 @@ def AdminProfilePage(request):
                 form2 = EmployerAdminForm(request.POST, instance=admin_data)
                 form3 = RestaurantForm(request.POST,request.FILES,instance=restaurant_data)
                 if form.is_valid() and form2.is_valid() and form3.is_valid():
-                                logger.debug(form3)
+                                logger.debug(form3.cleaned_data['image_of_restaurant'])
                                 form.save()
                                 form2.save()
                                 form3.save()
