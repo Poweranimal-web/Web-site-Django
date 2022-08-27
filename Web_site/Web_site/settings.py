@@ -59,7 +59,7 @@ ROOT_URLCONF = 'Web_site.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['/home/Nikita/buyah.com/Web_site/templates/'],
+        'DIRS': ['/home/Nikita/buyah.com/Web-site-Django/Web_site/templates/'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -128,8 +128,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = "/home/Nikita/buyah.com/Web_site/Web_site/static/"
-MEDIA_ROOT = "/home/Nikita/buyah.com/Web_site/Web_site/image/"
+STATIC_ROOT = "/home/Nikita/buyah.com/Web-site-Django/Web_site/Web_site/static/"
+MEDIA_ROOT = "/home/Nikita/buyah.com/Web-site-Django/Web_site/Web_site/image/"
 MEDIA_URL = '/media/'
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 EMAIL_HOST_USER = 'nikitagusev.developer@gmail.com'
@@ -146,7 +146,7 @@ LOGGING = {
         'file': {
             'level': 'DEBUG',
             'class': 'logging.FileHandler',
-            'filename': '/home/Nikita/buyah.com/Web_site/Web_site/django.log',
+            'filename': '/home/Nikita/buyah.com/Web-site-Django/Web_site/Web_site/django.log',
 
         },
     },

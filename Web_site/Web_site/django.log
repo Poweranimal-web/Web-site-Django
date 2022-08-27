@@ -3395,3 +3395,8 @@ Not Found: /robots.txt
 [36m{'Host': 'buyah.com', 'X-Real-Ip': '54.204.117.17', 'X-Forwarded-For': '54.204.117.17', 'X-Forwarded-Proto': 'https', 'Connection': 'close', 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.0.3 Safari/605.1.15', 'Accept-Language': 'en-US,en;q=0.5', 'Accept': '*/*', 'Accept-Encoding': 'gzip, deflate'}[0m
 [36mb''[0m
 [36mGET / - 200[0m
+True
+[36mGET /[0m
+[36m{'Host': 'buyah.com', 'X-Real-Ip': '91.247.76.13', 'X-Forwarded-For': '91.247.76.13', 'X-Forwarded-Proto': 'https', 'Connection': 'close', 'Upgrade-Insecure-Requests': '1', 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/104.0.0.0 Safari/537.36', 'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9', 'Purpose': 'prefetch', 'Sec-Fetch-Site': 'none', 'Sec-Fetch-Mode': 'navigate', 'Sec-Fetch-User': '?1', 'Sec-Fetch-Dest': 'document', 'Sec-Ch-Ua': '"Chromium";v="104", " Not A;Brand";v="99", "Google Chrome";v="104"', 'Sec-Ch-Ua-Mobile': '?0', 'Sec-Ch-Ua-Platform': '"Windows"', 'Accept-Encoding': 'gzip, deflate, br', 'Accept-Language': 'en-US,en;q=0.9,ru;q=0.8,uk;q=0.7', 'Cookie': 'csrftoken=zZDwJm3EXPd4VE2SzQp7RG3Uub2PHgqu; sessionid=w5lglm76fc7v77902icb1yqh0ymlgasx; auth=True; id_session=YPIY71KY64APBLHZG0LM'}[0m
+[36mb''[0m
+[36mGET / - 200[0m
