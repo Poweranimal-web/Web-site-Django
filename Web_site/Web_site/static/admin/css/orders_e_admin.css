@@ -1,12 +1,16 @@
 /* The side navigation menu */
 .nav {
     position: fixed;
+    left:0%;
     top:0%;
     width: 200px;
     background-color: black;
     position: fixed;
     height: 100%;
     overflow: auto;
+  }
+  body{
+    font-family:--bs-font-sans-serif;
   }
   
   /* Sidebar links */
