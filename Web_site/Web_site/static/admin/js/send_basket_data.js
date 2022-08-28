@@ -47,7 +47,10 @@ $(document).ready(function () {
             data: form,
             processData: false,
             contentType: false,
-            success: $("#close").trigger("click")
+            success: function(){ 
+                $("#close").trigger("click");
+                window.location.reload();
+            }
         });
         
     });    
