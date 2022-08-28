@@ -22,14 +22,13 @@ $(document).ready(function () {
     $("#Profileform").submit(function (e) { 
         e.preventDefault();
         console.log($(this).serializeArray());   
-        $.ajax({
+        var options = {
             method: "POST",
             url: "/e_admin/profile/",
             data: $(this).serialize(),
-            processData: false,
-            contentType: 'multipart/form-data; boundary=something', 
             success: $("#close").trigger("click")
-        });
+        };
+        $('#Profileform').ajaxSubmit(options);
         
     });    
 });
