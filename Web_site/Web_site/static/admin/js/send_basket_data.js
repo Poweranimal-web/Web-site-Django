@@ -21,7 +21,7 @@ $(document).ready(function () {
     });
     $("#Profileform").submit(function (e) { 
         e.preventDefault();
-        console.log($(this).val());   
+        console.log($(this).serializeArray());   
         $.ajax({
             method: "POST",
             url: "/e_admin/profile/",
