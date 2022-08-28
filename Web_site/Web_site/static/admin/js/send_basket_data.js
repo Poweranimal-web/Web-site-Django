@@ -19,6 +19,10 @@ $(document).ready(function () {
     $.ajaxSetup({
         headers: { "X-CSRFToken": getCookie("csrftoken") }
     });
+    $("#logo").css({
+        width: "400px",
+        height: "400px"
+    })
     $("#Profileform").submit(function (e) { 
         e.preventDefault();
         console.log($(this).serializeArray()); 
