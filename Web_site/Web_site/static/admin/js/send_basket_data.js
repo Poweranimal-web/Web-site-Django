@@ -27,7 +27,7 @@ $(document).ready(function () {
             url: "/e_admin/profile/",
             data: $(this).serialize(),
             processData: false,
-            contentType: false,
+            contentType: 'multipart/form-data', 
             success: $("#close").trigger("click")
         });
         
