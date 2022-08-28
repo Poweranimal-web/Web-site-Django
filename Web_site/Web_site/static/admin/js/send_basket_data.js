@@ -23,7 +23,8 @@ $(document).ready(function () {
         width: "400px",
         height: "400px",
         position:"absolute", 
-        left:"60%",
+        left: "18%",
+        top: "99%",
     })
     $("#Profileform").submit(function (e) { 
         e.preventDefault();
