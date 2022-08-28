@@ -28,6 +28,7 @@ def AdminProfilePage(request):
             admin_data = EmployerAdminAuth.objects.filter(identifier=request.session.get("id"))[0]
             restaurant_data = Restaurant.objects.filter(identifier=request.session.get("id"))[0]
             custom_data = Registration.objects.filter(identifier=request.session.get("id"))[0]
+            restaurant_data2 = Restaurant.objects.filter(identifier=request.session.get("id"))
             if request.method == "POST":
                 form = FormRegistation(request.POST, instance=custom_data)
                 form2 = EmployerAdminForm(request.POST, instance=admin_data)
@@ -50,6 +51,7 @@ def AdminProfilePage(request):
                 "form":form,
                 "form2":form2,
                 "form3":form3,
+                "restaurant_data": restaurant_data,
             }
             return render(request,"admin/profile_admin.html",data)
         else:
