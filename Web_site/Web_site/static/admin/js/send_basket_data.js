@@ -15,7 +15,7 @@ function getCookie(name) {
 }
 $(document).ready(function () {
     var form = $("#Profileform");
-    console.log(form);
+    // console.log(form);
     $.ajaxSetup({
         headers: { "X-CSRFToken": getCookie("csrftoken") }
     });
