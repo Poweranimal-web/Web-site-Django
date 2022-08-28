@@ -14,7 +14,7 @@
         <a class="nav-link" href="#">Stastics</a>
 </nav>
 <body>
-<script>
+{% comment %} <script>
 var wsStart='ws://';
 var endpoint=wsStart + window.location.host + window.location.pathname;
 var socket = new WebSocket(endpoint);
@@ -31,6 +31,6 @@ socket.send(1);
 
 }
 
-</script>
+</script> {% endcomment %}
 </body>
 </html>
