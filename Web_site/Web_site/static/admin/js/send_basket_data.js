@@ -21,12 +21,14 @@ $(document).ready(function () {
     });
     $("#Profileform").submit(function (e) { 
         e.preventDefault();
-        console.log($(this).serializeArray());   
+        console.log($(this).serializeArray()); 
+        var form = new FormData($(this)[0]);  
         $.ajax({
             method: "POST",
             url: "/e_admin/profile/",
-            data: $(this).serialize(),
-            contentType: 'multipart/form-data',
+            data: form,
+            processData: false,
+            contentType: false,
             success: $("#close").trigger("click")
         });
         
