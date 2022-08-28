@@ -26,6 +26,8 @@ $(document).ready(function () {
             method: "POST",
             url: "/e_admin/profile/",
             data: $(this).serialize(),
+            processData: false,
+            contentType: false,
             success: $("#close").trigger("click")
         });
         
