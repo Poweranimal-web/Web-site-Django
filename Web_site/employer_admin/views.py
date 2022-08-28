@@ -62,14 +62,11 @@ def AdminAuthPage(request):
         form = EAdminAuthForm(request.POST)
         if EmployerAdminAuth.objects.filter(login=(form["login"].value()).strip(), password_e=(form["password_e"].value()).strip()).exists():
             if form.is_valid():
-                name = form["login"].value()
-                data = json.loads(serializers.serialize("json",EmployerAdminAuth.objects.filter(login=(form["login"].value()).strip(), password_e=(form["password_e"].value()).strip())))
-                nickname_d = data[0]
-                nickname_d2 = nickname_d["fields"]
-                ind = nickname_d2["identifier"]
-                request.session["id"] = ind
+                data = EmployerAdminAuth.objects.filter(login=(form["login"].value()).strip(), password_e=(form["password_e"].value()).strip())[0]
+                request.session["id"] = data.identifier
                 request.session["login"] = form["login"].value()
                 request.session["Auth_Check_Admin"] = True
+                logger.debug(request.session["id"])
                 return redirect("employer_admin:home")
         else:
             logger.debug(False)
