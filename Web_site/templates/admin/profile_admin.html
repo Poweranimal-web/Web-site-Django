@@ -41,7 +41,7 @@
         {% bootstrap_label "Data About Restaurant" label_class="label_restaurant"%}
         {% bootstrap_field form3.restaurant_name show_label=False %}<br>
         {% bootstrap_field form3.description show_label=False %}<br>
-        {% bootstrap_field form3.image_of_restaurant %}<br>
+        {% bootstrap_field form3.image_of_restaurant.url %}<br>
         {% bootstrap_field form3.type_of_cuisine %}<br>
         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop" style="position:absolute; left:60%; top:145%; width: 200px;">
         Сохранить
