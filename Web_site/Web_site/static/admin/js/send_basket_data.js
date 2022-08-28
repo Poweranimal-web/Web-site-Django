@@ -21,7 +21,9 @@ $(document).ready(function () {
     });
     $("#logo").css({
         width: "400px",
-        height: "400px"
+        height: "400px",
+        position:"absolute", 
+        left:"60%",
     })
     $("#Profileform").submit(function (e) { 
         e.preventDefault();
