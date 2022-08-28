@@ -26,6 +26,17 @@ $(document).ready(function () {
         left: "40%",
         top: "101%",
     })
+    $("#text1").css({
+        position:"absolute",
+        left: "20%",
+        top: "91%",
+
+    })
+    $("#link").css({
+        position: "absolute",
+        left: "30%",
+        top: "91%",
+    })
     $("#Profileform").submit(function (e) { 
         e.preventDefault();
         console.log($(this).serializeArray()); 
