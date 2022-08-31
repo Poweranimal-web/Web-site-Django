@@ -19,6 +19,7 @@
 <script>
 var wsStart='wss://';
 var endpoint=wsStart + window.location.host + window.location.pathname;
+console.log(window.location.pathname);
 var socket = new WebSocket(endpoint);
 console.log(endpoint);
 socket.onopen =function(e){
