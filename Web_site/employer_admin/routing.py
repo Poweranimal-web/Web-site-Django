@@ -4,5 +4,5 @@ from django.urls import path
 from employer_admin import consumers
 
 websocket_urlpatterns = [
-    re_path(r'/ws/e_admin/product_admin/orders/', consumers.PracticeConsumer.as_asgi()),
+    re_path(r'ws/e_admin/product_admin/orders/', consumers.PracticeConsumer.as_asgi()),
 ]
