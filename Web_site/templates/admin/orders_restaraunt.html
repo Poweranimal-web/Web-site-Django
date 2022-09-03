@@ -17,7 +17,7 @@
 </nav>
 <body>
 <script>
-var wsStart='https://';
+var wsStart='wss://';
 var endpoint=wsStart + window.location.host +"/ws"+ window.location.pathname;
 console.log(window.location.pathname);
 var socket = new WebSocket(endpoint);
