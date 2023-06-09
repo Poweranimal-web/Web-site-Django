@@ -130,11 +130,9 @@ STATIC_ROOT = "/home/Nikita/buyah.com/Web-site-Django/Web_site/Web_site/static/"
 MEDIA_ROOT = "/home/Nikita/buyah.com/Web-site-Django/Web_site/Web_site/image/"
 MEDIA_URL = '/media/'
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-EMAIL_HOST_USER = 'nikitagusev.developer@gmail.com'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_PASSWORD = 'nikitadeveloper123'
 
 ASGI_APPLICATION = "Web_site.asgi.application"
 CHANNEL_LAYERS = {
